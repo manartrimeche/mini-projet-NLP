@@ -1,0 +1,456 @@
+<!-- Visualiseur interactif de structure -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structure du Projet - Legal AI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        .file-tree {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            overflow-x: auto;
+        }
+        .file-tree pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+        .checklist {
+            list-style: none;
+        }
+        .checklist li {
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border-left: 3px solid #667eea;
+            border-radius: 3px;
+        }
+        .checklist li:before {
+            content: "✅ ";
+            color: #27ae60;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .command {
+            background: #2d3436;
+            color: #0ef;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            border-left: 3px solid #0ef;
+        }
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .card {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            border-top: 3px solid #667eea;
+        }
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #667eea;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏗️ Structure du Projet Legal AI</h1>
+
+        <div class="success">
+            <strong>✅ Architecture complètement réorganisée et prête à l'emploi!</strong><br>
+            Frontend HTML/CSS/JS + Backend FastAPI + Système RAG
+        </div>
+
+        <!-- STRUCTURE PRINCIPALE -->
+        <div class="section">
+            <h2>📁 Structure Principale</h2>
+            <div class="file-tree">
+                <pre>mini-projet-NLP/                          ← Racine du projet
+│
+├── 🌐 frontend/                            ← Interface web
+│   ├── index.html                         ✅ Page principale
+│   ├── css/
+│   │   ├── style.css                      ✅ Styles (900 lignes)
+│   │   └── responsive.css                 ✅ Responsive (400 lignes)
+│   └── js/
+│       └── app.js                         ✅ Logique (600 lignes)
+│
+├── 🐍 app.py                              ✅ Serveur FastAPI principal
+│
+├── 🐍 mini-projet-NLP/                    ← Code RAG (inchangé)
+│   ├── src/rag/
+│   │   ├── config.py
+│   │   ├── vector_store.py
+│   │   ├── qa_system.py
+│   │   ├── llm_manager.py
+│   │   ├── database.py
+│   │   └── prompt.py
+│   ├── data/
+│   ├── chroma_db/
+│   └── notebook/
+│
+├── 📚 docs/                               ← Documentation
+│   ├── ARCHITECTURE.md                    ✅ Architecture (400+ lignes)
+│   ├── QUICKSTART_FRONTEND.md             ✅ Guide démarrage (300+ lignes)
+│   ├── STRUCTURE.md                       ✅ Structure projet (250+ lignes)
+│   └── README_FRONTEND.md                 ✅ Résumé final
+│
+├── .env.frontend                          ✅ Configuration exemple
+├── requirements-frontend.txt               ✅ Dépendances FastAPI
+├── .venv/                                 ← Environnement Python
+├── .git/
+└── ... autres fichiers inchangés</pre>
+            </div>
+        </div>
+
+        <!-- FICHIERS CRÉÉS -->
+        <div class="section">
+            <h2>✨ Fichiers Créés</h2>
+            <ul class="checklist">
+                <li>app.py - Serveur FastAPI (400 lignes)</li>
+                <li>frontend/index.html - Interface HTML (250 lignes)</li>
+                <li>frontend/css/style.css - Styles principaux (900 lignes)</li>
+                <li>frontend/css/responsive.css - Design responsive (400 lignes)</li>
+                <li>frontend/js/app.js - Logique JavaScript (600 lignes)</li>
+                <li>docs/ARCHITECTURE.md - Architecture détaillée</li>
+                <li>docs/QUICKSTART_FRONTEND.md - Guide démarrage</li>
+                <li>docs/STRUCTURE.md - Structure projet</li>
+                <li>docs/README_FRONTEND.md - Résumé final</li>
+                <li>.env.frontend - Configuration exemple</li>
+                <li>requirements-frontend.txt - Dépendances FastAPI</li>
+            </ul>
+        </div>
+
+        <!-- DÉMARRAGE RAPIDE -->
+        <div class="section">
+            <h2>🚀 Démarrage en 3 Étapes</h2>
+            
+            <h3>Étape 1: Installer FastAPI</h3>
+            <div class="command">pip install fastapi uvicorn python-dotenv</div>
+            
+            <h3>Étape 2: Démarrer le serveur</h3>
+            <div class="command">python app.py</div>
+            
+            <h3>Étape 3: Ouvrir le navigateur</h3>
+            <div class="command">http://localhost:8000</div>
+
+            <div class="success">
+                <strong>Résultat attendu:</strong><br>
+                ✅ Système RAG prêt!<br>
+                🌐 Serveur FastAPI démarré sur http://localhost:8000
+            </div>
+        </div>
+
+        <!-- FONCTIONNALITÉS -->
+        <div class="section">
+            <h2>✨ Fonctionnalités</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>💬 Chat Interactif</h3>
+                    <p>Posez des questions en temps réel, obtenez des réponses intelligentes basées sur le Code du Travail</p>
+                </div>
+                <div class="card">
+                    <h3>📚 Historique</h3>
+                    <p>Consultez vos conversations précédentes, effacez l'historique quand vous voulez</p>
+                </div>
+                <div class="card">
+                    <h3>📱 Responsive</h3>
+                    <p>Interface adaptée à tous les appareils: mobile, tablet, desktop</p>
+                </div>
+                <div class="card">
+                    <h3>🌙 Mode Sombre</h3>
+                    <p>Détection automatique du thème système, confortable à tout moment</p>
+                </div>
+                <div class="card">
+                    <h3>⚡ Rapide</h3>
+                    <p>Frontend sans dépendances externes, chargement ultra rapide</p>
+                </div>
+                <div class="card">
+                    <h3>🔐 Sécurisé</h3>
+                    <p>Protection XSS, CORS configuré, secrets en .env</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- API ENDPOINTS -->
+        <div class="section">
+            <h2>📡 API REST Endpoints</h2>
+            <table>
+                <tr>
+                    <th>Méthode</th>
+                    <th>Endpoint</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/</td>
+                    <td>Page d'accueil (frontend)</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/api/health</td>
+                    <td>État du système RAG</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/api/ask</td>
+                    <td>Poser une question</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/api/history</td>
+                    <td>Récupérer l'historique</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/api/clear-history</td>
+                    <td>Effacer l'historique</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- EXEMPLE UTILISATION -->
+        <div class="section">
+            <h2>📝 Exemples de Questions</h2>
+            <ul class="checklist">
+                <li>Quelle est la durée légale du travail en France?</li>
+                <li>Comment fonctionne le système de congés payés?</li>
+                <li>Quels sont les différents types de licenciement?</li>
+                <li>Quel est le salaire minimum en France?</li>
+                <li>Quelle est la différence entre CDI et CDD?</li>
+                <li>Qu'est-ce qu'une période d'essai?</li>
+            </ul>
+        </div>
+
+        <!-- CONFIGURATION -->
+        <div class="section">
+            <h2>⚙️ Configuration Rapide</h2>
+            
+            <h3>Changer le titre</h3>
+            <p>Modifiez <strong>frontend/index.html</strong> ligne 5:</p>
+            <div class="command">&lt;title&gt;Mon Titre Custom&lt;/title&gt;</div>
+
+            <h3>Changer les couleurs</h3>
+            <p>Modifiez <strong>frontend/css/style.css</strong> lignes 1-20:</p>
+            <div class="command">--primary: #2c3e50;
+--secondary: #3498db;
+--accent: #e74c3c;</div>
+
+            <h3>Changer le port</h3>
+            <p>Modifiez <strong>app.py</strong> dernière ligne:</p>
+            <div class="command">app.run(port=8080)  # Utiliser 8080</div>
+        </div>
+
+        <!-- DÉPANNAGE -->
+        <div class="section">
+            <h2>🐛 Dépannage Rapide</h2>
+            <table>
+                <tr>
+                    <th>Problème</th>
+                    <th>Solution</th>
+                </tr>
+                <tr>
+                    <td>"FastAPI not found"</td>
+                    <td><code>pip install fastapi uvicorn</code></td>
+                </tr>
+                <tr>
+                    <td>"Port 8000 déjà utilisé"</td>
+                    <td>Changer port dans app.py</td>
+                </tr>
+                <tr>
+                    <td>"Frontend ne charge pas"</td>
+                    <td>Rafraîchir navigateur (Ctrl+F5)</td>
+                </tr>
+                <tr>
+                    <td>"API ne répond pas"</td>
+                    <td>Vérifier logs FastAPI en terminal</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- STATISTIQUES -->
+        <div class="section">
+            <h2>📊 Statistiques du Projet</h2>
+            <table>
+                <tr>
+                    <th>Composant</th>
+                    <th>Lignes de Code</th>
+                    <th>Fichiers</th>
+                </tr>
+                <tr>
+                    <td>Frontend (HTML/CSS/JS)</td>
+                    <td>~1,500</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Backend FastAPI</td>
+                    <td>~400</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Documentation</td>
+                    <td>~1,000</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>RAG System</td>
+                    <td>~2,000+</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <th>TOTAL</th>
+                    <th>~4,900+</th>
+                    <th>16</th>
+                </tr>
+            </table>
+        </div>
+
+        <!-- DOCUMENTATION -->
+        <div class="section">
+            <h2>📚 Documentation Complète</h2>
+            <ul class="checklist">
+                <li><a href="docs/ARCHITECTURE.md">ARCHITECTURE.md</a> - Architecture détaillée (400+ lignes)</li>
+                <li><a href="docs/QUICKSTART_FRONTEND.md">QUICKSTART_FRONTEND.md</a> - Guide démarrage (300+ lignes)</li>
+                <li><a href="docs/STRUCTURE.md">STRUCTURE.md</a> - Structure du projet (250+ lignes)</li>
+                <li><a href="docs/README_FRONTEND.md">README_FRONTEND.md</a> - Résumé final</li>
+            </ul>
+
+            <div class="note">
+                <strong>💡 Conseil:</strong> Lisez d'abord QUICKSTART_FRONTEND.md pour démarrer rapidement!
+            </div>
+        </div>
+
+        <!-- PROCHAINES ÉTAPES -->
+        <div class="section">
+            <h2>🎯 Prochaines Étapes</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Court terme</h3>
+                    <ul>
+                        <li>Installer FastAPI</li>
+                        <li>Démarrer le serveur</li>
+                        <li>Tester une question</li>
+                        <li>Personnaliser les couleurs</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Moyen terme</h3>
+                    <ul>
+                        <li>Ajouter authentification</li>
+                        <li>Export PDF réponses</li>
+                        <li>Filtres recherche</li>
+                        <li>Dashboard stats</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Long terme</h3>
+                    <ul>
+                        <li>Déployer en production</li>
+                        <li>WebSocket temps réel</li>
+                        <li>App mobile</li>
+                        <li>Multi-langue</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONCLUSION -->
+        <div class="success" style="text-align: center; padding: 30px;">
+            <h2 style="color: #28a745;">✅ Architecture Complète!</h2>
+            <p style="font-size: 1.1em; margin: 20px 0;">
+                Votre projet a maintenant une architecture <strong>professionnelle et scalable</strong>!
+            </p>
+            <p>
+                <strong>Frontend moderne + Backend API + Système RAG intégré</strong><br>
+                Prêt pour être testé, personnalisé et déployé.
+            </p>
+            <div class="command" style="margin-top: 20px; padding: 20px;">
+                python app.py<br>
+                Puis ouvrez: http://localhost:5000
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px; color: #666;">
+            <p>Dernière mise à jour: 10 Janvier 2026 | Version 1.0.0</p>
+        </div>
+    </div>
+</body>
+</html>
