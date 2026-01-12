@@ -43,36 +43,15 @@ from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel
 import uvicorn
 from dotenv import load_dotenv
-from opencensus.ext.azure.log_exporter import AzureLogHandler
 
 print("Loading dotenv...")
 load_dotenv()
 
 # ============================================================
-# LOGGING & APPLICATION INSIGHTS
+# LOGGING
 # ============================================================
 logger = logging.getLogger("legal-ai-api")
-APPINSIGHTS_CONN = os.getenv("APPLICATIONINSIGHTS_CONNECTION_STRING")
-
-if APPINSIGHTS_CONN:
-    try:
-        handler = AzureLogHandler(connection_string=APPINSIGHTS_CONN)
-        logger.addHandler(handler)
-        logger.info("app_startup", extra={
-            "custom_dimensions": {
-                "event_type": "startup",
-                "status": "application_insights_connected"
-            }
-        })
-    except Exception as e:
-        print(f"[WARNING] Erreur connexion Application Insights: {e}")
-else:
-    logger.warning("app_startup", extra={
-        "custom_dimensions": {
-            "event_type": "startup",
-            "status": "application_insights_not_configured"
-        }
-    })
+logger.setLevel(logging.INFO)
 
 # Variables globales pour le système RAG
 qa_system = None
@@ -454,6 +433,8 @@ async def clear_history():
         )
 
 
+
+
 # ============ DOCUMENTATION ============
 
 @app.get("/docs", include_in_schema=False)
@@ -507,8 +488,14 @@ if __name__ == "__main__":
     print("\n" + "=" * 80)
     print("[START] Demarrage du serveur FastAPI")
     print("=" * 80)
-    print(f"[INFO] Serveur: http://localhost:8001")
-    print(f"[INFO] Documentation API: http://localhost:8001/docs")
+    # Récupérer le port depuis l'environnement (pour le déploiement)
+    port = int(os.environ.get("PORT", 8001))
+    
+    print("\n" + "=" * 80)
+    print("[START] Demarrage du serveur FastAPI")
+    print("=" * 80)
+    print(f"[INFO] Serveur: http://localhost:{port}")
+    print(f"[INFO] Documentation API: http://localhost:{port}/docs")
     print(f"[INFO] Frontend: http://localhost:8080")
     print("=" * 80)
     print("[INFO] Appuyez sur CTRL+C pour arreter\n")
@@ -517,7 +504,7 @@ if __name__ == "__main__":
     uvicorn.run(
         app,
         host="0.0.0.0",
-        port=8001,
+        port=port,
         log_level="info"
     )
 

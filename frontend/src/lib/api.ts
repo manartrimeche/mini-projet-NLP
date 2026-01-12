@@ -2,7 +2,19 @@
  * Service API centralisé pour communiquer avec le backend
  */
 
-const API_BASE_URL = '/api';
+// Déterminer l'URL de base de l'API
+const getApiBaseUrl = () => {
+  // Si on est en développement, utiliser le proxy Vite
+  if (import.meta.env.DEV) {
+    return '/api';
+  }
+  // En production, construire l'URL complète
+  const protocol = window.location.protocol;
+  const hostname = window.location.hostname;
+  return `${protocol}//${hostname}:8001/api`;
+};
+
+const API_BASE_URL = getApiBaseUrl();
 
 export interface ApiResponse<T> {
   success: boolean;

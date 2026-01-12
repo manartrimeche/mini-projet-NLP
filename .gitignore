@@ -7,7 +7,6 @@ venv/
 ENV/
 env/
 .env
-.flaskenv
 
 # Databases
 *.db
@@ -25,9 +24,6 @@ mlruns/
 Thumbs.db
 
 # Docker
-.dockerignore
-Dockerfile
-docker-compose.yml
 
 # Project specific
 backend/__pycache__/
